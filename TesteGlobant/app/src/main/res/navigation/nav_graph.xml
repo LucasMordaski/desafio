@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/login">
+
+    <fragment
+        android:id="@+id/login"
+        android:name="com.mordaski.testeglobant.ui.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/login_fragment" >
+
+        <action
+            android:id="@+id/action_login_to_news"
+            app:destination="@id/newsFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.mordaski.testeglobant.ui.news.NewsFragment"
+        android:label="News"
+        tools:layout="@layout/news_fragment" >
+
+        <action
+            android:id="@+id/action_news_to_details"
+            app:destination="@id/newsDetails" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/newsDetails"
+        android:name="com.mordaski.testeglobant.ui.news.details.NewsDetailFragment"
+        android:label="Details"
+        tools:layout="@layout/news_detail_fragment" >
+
+        <action
+            android:id="@+id/action_details_to_news"
+            app:destination="@id/newsFragment" />
+
+    </fragment>
+
+</navigation>

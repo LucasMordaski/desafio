@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:background="#D3D3D3"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp">
+
+        <ImageView
+            android:id="@+id/maker"
+            android:layout_width="10dp"
+            android:layout_height="0dp"
+            android:background="@drawable/maker_political"
+            app:layout_constraintTop_toTopOf="@id/item"
+            app:layout_constraintStart_toStartOf="@id/item"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/image"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintEnd_toStartOf="@id/titulo"
+            app:layout_constraintStart_toEndOf="@id/maker"
+            app:layout_constraintTop_toTopOf="@id/titulo"
+            app:layout_constraintBottom_toBottomOf="@id/titulo"/>
+
+        <TextView
+            android:id="@+id/titulo"
+            style="@style/proxima_nova_bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            tools:text="Antes de demissão, secretário de Covas enfrentou pressão por segurar gastos de secretarias"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/image"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/info"
+            style="@style/proxima_nova_light"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="10dp"
+            tools:text="Mauro Ricardo fez pastas segurarem orçamento para ano eleitoral, mas, com pandemia de covid-19, investimentos não foram feitos"
+            app:layout_constraintStart_toEndOf="@+id/maker"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

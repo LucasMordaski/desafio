@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.mordaski.testeglobant.ui.login.LoginViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.login.LoginFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/character_cl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_rectangle">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.1" />
+
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animation"
+                android:layout_width="0dp"
+                android:layout_height="300dp"
+                android:layout_centerHorizontal="true"
+                app:layout_constraintTop_toBottomOf="@id/guideline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/title"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="lottie-search-black-circle.json"
+                app:lottie_loop="true"
+                app:lottie_speed="1" />
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/proxima_nova_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:textSize="32sp"
+                android:textColor="#C0C0C0"
+                android:lineSpacingExtra="8sp"
+                android:gravity="center_horizontal"
+                android:text="@string/login_title"
+                app:layout_constraintTop_toBottomOf="@id/animation"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/user"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/user"
+                style="@style/proxima_nova_light"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/pass"
+                app:errorEnabled="true"
+                android:layout_marginTop="22dp"
+                android:textColorHint="#C0C0C0"
+                android:hint="@string/user">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    style="@style/proxima_nova_light"
+                    android:textColor="#C0C0C0"
+                    android:text="@={viewModel.auth.usuario}"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/pass"
+                style="@style/proxima_nova_light"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/user"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:errorEnabled="true"
+                android:textColorHint="#C0C0C0"
+                android:layout_marginTop="6dp"
+                android:hint="@string/password">
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/proxima_nova_light"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="#C0C0C0"
+                    android:text="@={viewModel.auth.password}"
+                    android:inputType="textPassword"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnLogin"
+                style="@style/button"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Login"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintBottom_toTopOf="@id/btnRegister"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                 />
+
+            <Button
+                android:id="@+id/btnRegister"
+                style="@style/button_borderless"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:text="@string/register"
+                android:layout_marginBottom="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <include
+            android:id="@+id/loading"
+            android:visibility="gone"
+            layout="@layout/loading_view"/>
+
+        <include
+            android:id="@+id/error"
+            android:visibility="gone"
+            layout="@layout/error_view"/>
+
+    </FrameLayout>
+</layout>

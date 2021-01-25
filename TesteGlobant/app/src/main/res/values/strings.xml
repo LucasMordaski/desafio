@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Globant News</string>
+    <string name="login_title">News</string>
+    <string name="user">User</string>
+    <string name="password">password</string>
+    <string name="register">Register</string>
+    <string name="try_again">Tentar novamente</string>
+</resources>
